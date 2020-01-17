@@ -21,6 +21,4 @@ class GameService {
 
 };
 
-GameService.BASE_URL="http://192.168.2.22:5000/api/game";
-
 export default GameService;
