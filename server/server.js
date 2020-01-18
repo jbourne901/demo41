@@ -12,7 +12,10 @@ dotenv.config();
 
 const db_url = process.env.DB_URL;
 
-mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(db_url, { useNewUrlParser: true, 
+                           useUnifiedTopology: true,
+                           useFindAndModify: false 
+                          });
 
 var app = express();
 app.use(cors());

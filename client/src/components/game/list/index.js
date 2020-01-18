@@ -1,3 +1,3 @@
-import GameList from "./list";
+import GameListContainer from "./container";
 
-export default GameList;
+export default GameListContainer;

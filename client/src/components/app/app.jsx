@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink, Switch, Route} from "react-router-dom";
-import GameList from "../game/list";
+import GameListContainer from "../game/list";
 import GameEdit from "../game/edit";
 
 const App = () => {
@@ -13,9 +13,9 @@ const App = () => {
               <NavLink to="/game/new">New Game</NavLink>
             </div>
             <Switch>
-                <Route exact path="/" component={GameList} />
+                <Route exact path="/" component={GameListContainer} />
                 <Route path="/game/edit/:gameId" component={GameEdit} />                                
-                <Route path="/games" component={GameList} />
+                <Route path="/games" component={GameListContainer} />
                 <Route path="/game/new" component={GameEdit} />
 
             </Switch>

@@ -13,7 +13,7 @@ router.post("/list", (req,res,next) => {
 
 function gameListFound(gamesFound, req, res, next) {
     const games = gamesFound.map( g => {return {...(g.toObject()), gameId: g._id} });
-    return res.json({payload: {games}, result: "OK", errors: {} });
+    return res.json({games, result: "OK", errors: {} });
 }
 
 function sendSuccess(req, res, next) {
@@ -89,6 +89,8 @@ router.post("/save", async (req,res,next) => {
         return sendErrors(errors, req, res, next);
     }
     if(game.gameId) {
+        console.log("findByIdAndUpdate game=");
+        console.dir(game);
         return GameModel.findByIdAndUpdate(game.gameId, game)
                         .then( () => sendSuccess(req, res, next))
                         .catch( (err) => sendError(err))
@@ -122,7 +124,7 @@ router.post("/get", (req,res,next) => {
      const game =  {...g, gameId: g._id };
      console.log("game=");
      console.dir(game);
-     return res.json({payload: {game}, result: "OK", errors: {} });
+     return res.json({game, result: "OK", errors: {} });
  }
 
  
